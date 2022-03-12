@@ -3,7 +3,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   /* margin-top: 3.4rem; */
   flex: 1;
   display: flex;
@@ -48,12 +48,6 @@
 .title,
 .description {
   text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
 }
 
 .code {
@@ -116,12 +110,13 @@
 }
 
 .mainnav{
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 500;
   background-color: black;
   color: white;
+  padding: 1px;
 }
 
 .mainnav ul{
@@ -134,22 +129,21 @@
   margin: 0 24px;
     list-style: none;
     font-weight: bold;
-} 
-
-.myImg{
-  border-radius: 10px; 
 }
 
 .banner{
   width: 100%;
   color: white;
   height: 31.8rem;
+  z-index: -501;
+  background: black;
 }
 .banner_bg{
   width: 100%;
   position: absolute;
   z-index: -500;
   height: 31.8rem;
+  opacity: .65;
 }
 .banner_context {
   width: 100%;

@@ -1,8 +1,18 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import React, {useEffect, useState} from 'react'
 
-export default function Home() {
+const Index = (prop) => {
+
+  const [allBlogs, setallBlogs] = useState([])
+
+  useEffect(() => {
+    fetch("/api/blogs").then((a)=>{
+      return a.json()
+    }).then(data => setallBlogs(data)) 
+  }, [])
+
   return (
     <div >
       <Head>
@@ -21,27 +31,29 @@ export default function Home() {
             <h1 className={styles.title}>
               Hunting Coders
             </h1>
-
-            <p className={styles.description}>
-              A blog for hunting coders by a hunting coder
-            </p>
           </div>
         </div>
         
         <div className={styles.container}>
           <div>
             <h2>Popular Blogs</h2>
-            <div >
-              <h3>How to learn Javascript in 2022?</h3>
-              <p>Javascript is language used to write logic for web apps</p>
+            <div className={styles.blogitem}>
+              <a>
+                <h3>How to learn Flask in 2022?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              </a>
             </div>
-            <div>
-              <h3>How to learn Javascript in 2022?</h3>
-              <p>Javascript is language used to write logic for web apps</p>
+            <div className={styles.blogitem}>
+              <a>
+                <h3>How to learn Flask in 2022?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              </a>
             </div>
-            <div>
-              <h3>How to learn Javascript in 2022?</h3>
-              <p>Javascript is language used to write logic for web apps</p>
+            <div className={styles.blogitem}>
+              <a>
+                <h3>How to learn Flask in 2022?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              </a>
             </div>
           </div>
         </div>
@@ -50,3 +62,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Index
